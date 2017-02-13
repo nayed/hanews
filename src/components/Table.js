@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import Button from "./Button"
 
 class Table extends Component {
   render() {
     const { list, pattern, onDismiss } = this.props
     const isSearched = searchTerm => item =>
       !searchTerm || item.title.toLowerCase().includes(searchTerm.toLowerCase())
-      
+
     return (
       <div>
         { list.filter(isSearched(pattern)).map(item =>
@@ -17,12 +18,9 @@ class Table extends Component {
             <span>{item.num_comments}</span>
             <span>{item.points}</span>
             <span>
-              <button
-                onClick={() => this.onDismiss(item.objectID)}
-                type="button"
-              >
+              <Button onClick={() => onDismiss(item.objectID)} >
                 Dismiss
-              </button>
+              </Button>
             </span>
           </div>
         )}
