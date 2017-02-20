@@ -58,18 +58,27 @@ class App extends Component {
     const { searchTerm, list } = this.state
 
     return (
-      <div className="App">
-        <Search
-          value={searchTerm}
-          onChange={this.onSearchChange}
-        >
-          Search
-        </Search>
-        <Table
-          list={list}
-          pattern={searchTerm}
-          onDismiss={this.onDismiss}
-        />
+      <div className="container-fluid">
+        <div className="App">
+          <div className="row">
+            <div className="col-sm-4">
+            <div className="search">
+              <Search
+                value={searchTerm}
+                onChange={this.onSearchChange}
+              >
+                Search
+              </Search>
+            </div>
+            </div>
+          </div>
+
+          <Table
+            list={list}
+            pattern={searchTerm}
+            onDismiss={this.onDismiss}
+          />
+        </div>
       </div>
     )
   }
