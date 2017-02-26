@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Search from './Search'
-import Table from './Table'
+import List from './List'
 
 import '../styles/App.sass'
 
@@ -61,19 +61,20 @@ class App extends Component {
       <div className="container-fluid">
         <div className="App">
           <div className="row">
+            <div className="col-sm-4"></div>
             <div className="col-sm-4">
-            <div className="search">
               <Search
                 value={searchTerm}
                 onChange={this.onSearchChange}
+                className="search"
               >
                 Search
               </Search>
             </div>
-            </div>
+            <div className="col-sm-4"></div>
           </div>
 
-          <Table
+          <List
             list={list}
             pattern={searchTerm}
             onDismiss={this.onDismiss}
