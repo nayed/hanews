@@ -74,11 +74,13 @@ class App extends Component {
             <div className="col-sm-4"></div>
           </div>
 
-          <List
-            list={result.hits}
-            pattern={searchTerm}
-            onDismiss={this.onDismiss}
-          />
+          { result &&
+            <List
+              list={result.hits}
+              pattern={searchTerm}
+              onDismiss={this.onDismiss}
+            />
+          }
         </div>
       </div>
     )
