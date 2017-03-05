@@ -2,13 +2,10 @@ import React from 'react'
 import Button from './Button'
 import '../styles/List.sass'
 
-const List = ({ list, pattern, onDismiss }) => {
-  const isSearched = searchTerm => item =>
-    !searchTerm || item.title.toLowerCase().includes(searchTerm.toLowerCase())
-
+const List = ({ list, onDismiss }) => {
   return (
     <div>
-      { list.filter(isSearched(pattern)).map(item =>
+      { list.map(item =>
         <div key={item.objectID}>
           <div className="row">
             <div className="col-sm-3"></div>
