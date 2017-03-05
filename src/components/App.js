@@ -23,6 +23,7 @@ class App extends Component {
     this.fetchSearchTopStories = this.fetchSearchTopStories.bind(this)
     this.onDismiss = this.onDismiss.bind(this)
     this.onSearchChange = this.onSearchChange.bind(this)
+    this.onSearchSubmit = this.onSearchSubmit.bind(this)
   }
 
   setSearchTopStories(result) {
@@ -48,8 +49,14 @@ class App extends Component {
     })
   }
 
-  onSearchChange(event) {
-    this.setState({ searchTerm: event.target.value })
+  onSearchChange(e) {
+    this.setState({ searchTerm: e.target.value })
+  }
+
+  onSearchSubmit(e) {
+    const { searchTerm } = this.state
+    this.fetchSearchTopStories(searchTerm)
+    e.preventDefault()
   }
 
   render() {
@@ -66,6 +73,7 @@ class App extends Component {
               <Search
                 value={searchTerm}
                 onChange={this.onSearchChange}
+                onSubmit={this.onSearchSubmit}
                 className="search"
               >
                 Search
@@ -77,7 +85,6 @@ class App extends Component {
           { result &&
             <List
               list={result.hits}
-              pattern={searchTerm}
               onDismiss={this.onDismiss}
             />
           }
