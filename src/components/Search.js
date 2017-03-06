@@ -13,7 +13,7 @@ const Search = ({ value, onChange, onSubmit, className = '', children }) =>
         placeholder="Search here"
         className={className}
       />
-      <Button type="submit">{children}</Button>
+      <Button type="submit" className="btn-search">{children}</Button>
     </FormGroup>
   </Form>
 

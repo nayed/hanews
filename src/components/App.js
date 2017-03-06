@@ -4,10 +4,11 @@ import List from './List'
 import Button from './Button'
 
 import '../styles/App.sass'
+import '../styles/Button.sass'
 
-const DEFAULT_QUERY = 'ruby'
+const DEFAULT_QUERY = 'react'
 const DEFAULT_PAGE = 0
-const DEFAULT_HPP = '40'
+const DEFAULT_HPP = '20'
 
 const PATH_BASE = 'https://hn.algolia.com/api/v1'
 const PATH_SEARCH = '/search'
@@ -81,6 +82,8 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <div className="App">
+          <h1 className="hanews">HaNews</h1>
+          <p>Search and find the most popular subject in Hacker News history</p>
           <div className="row">
             <div className="col-sm-4"></div>
             <div className="col-sm-4">
@@ -104,7 +107,7 @@ class App extends Component {
           }
 
           <div>
-            <Button onClick={() => this.fetchSearchTopStories(searchTerm, page + 1)}>More</Button>
+            <Button className="btn-more" onClick={() => this.fetchSearchTopStories(searchTerm, page + 1)}>More</Button>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+
 import '../styles/List.sass'
 
 const List = ({ list, onDismiss }) => {
@@ -8,21 +9,21 @@ const List = ({ list, onDismiss }) => {
       { list.map(item =>
         <div key={item.objectID}>
           <div className="row">
-            <div className="col-sm-3"></div>
-            <div className="item col-sm-6">
-              <span>
+            <div className="col-sm-3 col-md-4"></div>
+            <div className="item col-sm-6 col-md-4">
+              <div className="title">
                 <a href={item.url}>{item.title}</a>
-              </span>
-              <span>{item.author}</span>
-              <span>{item.num_comments}</span>
-              <span>{item.points}</span>
+              </div>
+              <span>submitted by {item.author}</span>|
+              <span>{item.num_comments} comments</span>|
+              <span>{item.points} pts</span>
               <span>
-                <Button onClick={() => onDismiss(item.objectID)} >
-                  Dismiss
+                <Button className="btn-dismiss" onClick={() => onDismiss(item.objectID)} >
+                  X
                 </Button>
               </span>
             </div>
-            <div className="col-sm-3"></div>
+            <div className="col-sm-3 col-md-4"></div>
           </div>
         </div>
       )}
