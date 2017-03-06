@@ -12,10 +12,12 @@ const List = ({ list, onDismiss }) => {
             <div className="col-sm-3 col-md-4"></div>
             <div className="item col-sm-6 col-md-4">
               <div className="title">
-                <a href={item.url}>{item.title}</a>
+                <a href={item.url} data-toggle="tooltip" title={item.title}>
+                  {item.title.length > 40 ? `${item.title.substring(0, 40)}...` : item.title}
+                </a>
               </div>
-              <span>submitted by {item.author}</span>|
-              <span>{item.num_comments} comments</span>|
+              <span>by {item.author}</span>|
+              <span>{item.num_comments} comms</span>|
               <span>{item.points} pts</span>
               <span>
                 <Button className="btn-dismiss" onClick={() => onDismiss(item.objectID)} >
