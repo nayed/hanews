@@ -3,6 +3,10 @@ import Button from './Button'
 
 import '../styles/List.sass'
 
+const PATH_HN = 'https://news.ycombinator.com'
+const PATH_POST = '/item?id='
+const PATH_USER = '/user?id='
+
 const List = ({ list, onDismiss }) => {
   return (
     <div>
@@ -16,9 +20,9 @@ const List = ({ list, onDismiss }) => {
                   {item.title.length > 40 ? `${item.title.substring(0, 40)}...` : item.title}
                 </a>
               </div>
-              <span>by {item.author}</span>|
-              <span>{item.num_comments} comms</span>|
-              <span>{item.points} pts</span>
+              <span className="info">by <a href={`${PATH_HN}${PATH_USER}${item.author}`}>{item.author}</a></span>|
+              <span className="info"><a href={`${PATH_HN}${PATH_POST}${item.objectID}`}> {item.num_comments} comms</a></span>|
+              <span className="info">{item.points} pts</span>
               <span>
                 <Button className="btn-dismiss" onClick={() => onDismiss(item.objectID)} >
                   X
