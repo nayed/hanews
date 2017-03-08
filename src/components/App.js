@@ -83,7 +83,7 @@ class App extends Component {
       <div className="container-fluid">
         <div className="App">
           <h1 className="hanews">HaNews</h1>
-          <p>Search and find the most popular subject in Hacker News history</p>
+          <p>Search topic and find the most popular posts in <span className="hide-link"><a href="https://news.ycombinator.com/">Hacker News</a></span> history</p>
           <div className="row">
             <div className="col-sm-4"></div>
             <div className="col-sm-4">
