@@ -17,7 +17,7 @@ const List = ({ list, onDismiss }) => {
             <div className="item col-sm-6 col-md-4">
               <div className="title">
                 <a href={item.url} data-toggle="tooltip" title={item.title}>
-                  {item.title.length > 40 ? `${item.title.substring(0, 40)}...` : item.title}
+                  {displayItem(item)}
                 </a>
               </div>
               <span className="info">by <a href={`${PATH_HN}${PATH_USER}${item.author}`}>{item.author}</a></span>|
@@ -35,6 +35,15 @@ const List = ({ list, onDismiss }) => {
       )}
     </div>
   )
+}
+
+function displayItem(item) {
+  if (typeof item.title !== "string")
+    return ""
+  else if (item.title.length > 40)
+    return `${item.title.substring(0, 40)}...`
+  else
+    return item.title
 }
 
 export default List
